@@ -7,7 +7,7 @@ export class GenderDirective {
   @Input() gender = '';
   constructor(private el: ElementRef) { }
 
-  @HostListener('onpageshow')
+  @HostListener('onmousenter')
   onEvent(){
     console.log('here');
     this.color();
