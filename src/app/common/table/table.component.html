@@ -1,0 +1,24 @@
+<div class="container">
+  <h1>{{heading}}</h1>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th *ngFor="let colName of colNames"> {{ colName }} </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let row of rows; index as i" appHighlight>
+        <td *ngFor="let col of cols">
+          <div *ngIf="col==='action-delete'; else elseBlock1"><a (click)="deleteRow(i)">Delete</a></div>
+          <ng-template #elseBlock1><div *ngIf="col==='action-age'; else elseBlock2">{{row['dob'] | age}}</div></ng-template>
+          <ng-template #elseBlock2><div *ngIf="col==='dob'; else elseBlock3">{{row[col] | date: 'dd MMM, YYYY'}}</div></ng-template>
+          <ng-template #elseBlock3><div *ngIf="col==='name'; else elseBlock4" [gender]="row['gender']" appGender>{{row[col]}}</div></ng-template>
+          <ng-template #elseBlock4><div>{{row[col]}}</div></ng-template>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>
+

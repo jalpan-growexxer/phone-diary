@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-8 m-auto">
+      <form action="" method="post" [formGroup]="loginForm" (ngSubmit)="login()">
+        <div class="mb-3">
+          <label for="username" class="form-label">Username</label>
+          <input type="text" name="username" id="username" class="form-control" formControlName="username">
+        </div>
+        <div class="mb-3">
+          <label for="password" class="form-label">Password</label>
+          <input type="password" name="password" id="password" class="form-control" formControlName="password">
+        </div>
+        <button class="btn btn-primary" type="submit" [disabled]="!loginForm.valid">Login</button>
+      </form>
+    </div>
+  </div>
+</div>
